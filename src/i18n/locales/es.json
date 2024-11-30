@@ -1,0 +1,56 @@
+{
+  "app": {
+    "title": "Generador de Códigos QR",
+    "description": "Genera códigos QR personalizados para diferentes tipos de contenido"
+  },
+  "types": {
+    "lanyar": "Lanyar",
+    "url": "URL",
+    "text": "Texto",
+    "vcard": "Contacto (vCard)",
+    "wifi": "WiFi",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "calendar": "Calendario",
+    "location": "Ubicación",
+    "menu": "Menú",
+    "social": "Redes Sociales",
+    "multilink": "Multi-enlaces",
+    "data": "Datos"
+  },
+  "lanyar": {
+    "firstName": "Nombre",
+    "lastName": "Apellidos",
+    "organization": "Organización",
+    "title": "Cargo",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "website": "Sitio web",
+    "address": "Dirección"
+  },
+  "customization": {
+    "size": "Tamaño",
+    "foreground": "Color principal",
+    "background": "Color de fondo",
+    "cornerStyle": "Estilo de esquinas",
+    "margin": "Margen",
+    "errorLevel": "Nivel de corrección",
+    "logo": "Logo"
+  },
+  "actions": {
+    "generate": "Generar",
+    "download": "Descargar",
+    "copy": "Copiar",
+    "reset": "Reiniciar"
+  },
+  "tooltips": {
+    "size": "Tamaño del código QR en píxeles (128-512)",
+    "errorLevel": "Nivel de corrección de errores. Mayor porcentaje = más resistente a daños",
+    "foreground": "Color de los módulos QR (puntos negros)",
+    "background": "Color del fondo del código QR",
+    "logo": "Añade un logo en PNG o SVG (máx. 20% del tamaño)"
+  },
+  "errors": {
+    "invalidImageFormat": "El archivo debe ser PNG o SVG"
+  }
+}
