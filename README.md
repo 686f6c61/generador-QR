@@ -22,6 +22,8 @@ Aplicación web para la generación de códigos QR profesionales con dos modos p
 - Validación de datos en tiempo real
 
 ### Otros QR
+![Otros QR](img/github01.png)
+
 Soporta múltiples tipos de contenido:
 - URLs
 - Texto plano
@@ -62,6 +64,9 @@ npm run build
 ## 🔧 Uso
 
 ### Generación Masiva (QR Lanyards)
+
+![Generación masiva QR Lanyards](img/github02.png)
+
 
 1. Descarga la plantilla CSV
 2. Completa la información de los contactos
