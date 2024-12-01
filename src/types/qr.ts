@@ -1,44 +1,88 @@
-export type QRType = 
-  | 'lanyar'
+import { QRCodeToDataURLOptions, QRCodeToStringOptions } from 'qrcode';
+
+export type QRCodeType = 
   | 'url'
   | 'text'
   | 'vcard'
-  | 'wifi'
   | 'email'
   | 'phone'
+  | 'wifi'
+  | 'geo'
   | 'calendar'
-  | 'location'
-  | 'menu'
-  | 'social'
-  | 'multilink'
-  | 'data';
+  | 'sms'
+  | 'social';
 
-export type ErrorCorrectionLevel = 'L' | 'M' | 'Q' | 'H';
-export type CornerStyle = 'sharp' | 'rounded';
-export type Theme = 'light' | 'dark';
-
-export interface QRCodeConfig {
-  type: QRType;
-  value: string;
+export interface QRCodeStyle {
+  backgroundColor: string;
+  foregroundColor: string;
   size: number;
-  level: ErrorCorrectionLevel;
-  foreground: string;
-  background: string;
-  cornerStyle: CornerStyle;
   margin: number;
-  logoUrl?: string;
-  logoSize?: number;
+  errorCorrection: 'L' | 'M' | 'Q' | 'H';
+  cornerStyle: 'square' | 'rounded';
+  logo?: File;
+  logoSize: number;
 }
 
-export interface LanyarData {
+export interface QRCodeData {
+  type: QRCodeType;
+  content: Record<string, string>;
+}
+
+export interface QRCodeOptions extends QRCodeToDataURLOptions, QRCodeToStringOptions {
+  errorCorrectionLevel: 'L' | 'M' | 'Q' | 'H';
+  margin: number;
+  width: number;
+  color: {
+    dark: string;
+    light: string;
+  };
+}
+
+export interface WifiData {
+  ssid: string;
+  password: string;
+  encryption: 'WEP' | 'WPA' | 'nopass';
+  hidden: boolean;
+}
+
+export interface VCardData {
   firstName: string;
   lastName: string;
-  organization?: string;
-  title?: string;
-  email?: string;
-  phone?: string;
-  website?: string;
-  address?: string;
+  organization: string;
+  title: string;
+  email: string;
+  phone: string;
+  website: string;
+  address: string;
 }
 
-// Rest of the interfaces remain the same...
+export interface CalendarData {
+  title: string;
+  description: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  allDay: boolean;
+}
+
+export interface GeoData {
+  latitude: string;
+  longitude: string;
+  query: string;
+}
+
+export interface EmailData {
+  address: string;
+  subject: string;
+  body: string;
+}
+
+export interface SMSData {
+  phone: string;
+  message: string;
+}
+
+export interface SocialData {
+  platform: 'twitter' | 'linkedin' | 'facebook' | 'instagram';
+  username: string;
+}

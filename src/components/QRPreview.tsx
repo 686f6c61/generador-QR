@@ -1,82 +1,51 @@
-import React, { useState } from 'react';
-import { QRCodeCanvas } from 'qrcode.react';
-import { Download, Copy } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import { QRCodeConfig } from '../types/qr';
-import Button from './ui/Button';
-import Toast from './ui/Toast';
+import React, { useEffect, useState } from 'react';
+import { Contact, QRGenerationOptions } from '../types';
+import { generateQRCode } from '../utils/qr';
 
 interface QRPreviewProps {
-  config: QRCodeConfig;
+  contact: Contact;
+  options: QRGenerationOptions;
 }
 
-const QRPreview: React.FC<QRPreviewProps> = ({ config }) => {
-  const { t } = useTranslation();
-  const [showToast, setShowToast] = useState(false);
+export const QRPreview: React.FC<QRPreviewProps> = ({ contact, options }) => {
+  const [previewUrl, setPreviewUrl] = useState<string>('');
 
-  const handleDownload = () => {
-    const canvas = document.querySelector('canvas');
-    if (canvas) {
-      const url = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.download = 'qrcode.png';
-      link.href = url;
-      link.click();
-    }
-  };
-
-  const handleCopy = () => {
-    const canvas = document.querySelector('canvas');
-    if (canvas) {
-      canvas.toBlob((blob) => {
-        if (blob) {
-          navigator.clipboard.write([
-            new ClipboardItem({ 'image/png': blob })
-          ]);
-          setShowToast(true);
-          setTimeout(() => setShowToast(false), 2000);
+  useEffect(() => {
+    const generatePreview = async () => {
+      try {
+        const qrCode = await generateQRCode(contact, 'png', options);
+        if (qrCode.png) {
+          setPreviewUrl(qrCode.png);
         }
-      });
-    }
-  };
+      } catch (error) {
+        console.error('Error generating preview:', error);
+      }
+    };
+
+    generatePreview();
+  }, [contact, options]);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="border-2 border-gray-900 rounded-lg p-4 bg-white">
-        <QRCodeCanvas
-          value={config.value || ' '}
-          size={config.size}
-          level={config.level}
-          fgColor={config.foreground}
-          bgColor={config.background}
-          includeMargin={true}
-          imageSettings={config.logoUrl ? {
-            src: config.logoUrl,
-            height: config.logoSize,
-            width: config.logoSize,
-            excavate: true
-          } : undefined}
-        />
+    <div className="flex flex-col items-center space-y-4">
+      <div className="bg-white p-4 rounded-lg shadow-sm">
+        {previewUrl ? (
+          <img
+            src={previewUrl}
+            alt="QR Code Preview"
+            className="w-full h-full object-contain"
+          />
+        ) : (
+          <div className="w-48 h-48 flex items-center justify-center bg-gray-50 rounded">
+            <p className="text-sm text-gray-500 text-center">
+              Generating preview...
+            </p>
+          </div>
+        )}
       </div>
-
-      <div className="flex gap-4 mt-6">
-        <Button onClick={handleDownload}>
-          <Download size={20} />
-          {t('actions.download')}
-        </Button>
-        <Button variant="secondary" onClick={handleCopy}>
-          <Copy size={20} />
-          {t('actions.copy')}
-        </Button>
+      <div className="text-center">
+        <p className="font-medium text-gray-900">{contact.firstName} {contact.lastName}</p>
+        <p className="text-sm text-gray-600">{contact.organization}</p>
       </div>
-
-      <Toast 
-        show={showToast} 
-        message="QR copiado" 
-        onClose={() => setShowToast(false)} 
-      />
     </div>
   );
 };
-
-export default QRPreview;

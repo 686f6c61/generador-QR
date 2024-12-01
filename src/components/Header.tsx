@@ -1,59 +1,41 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Moon, Sun, QrCode, Github } from 'lucide-react';
-import { Theme } from '../types/qr';
+import { Languages, Github } from 'lucide-react';
+import { Language } from '../types';
 
 interface HeaderProps {
-  theme: Theme;
-  onThemeToggle: () => void;
+  onLanguageToggle: () => void;
+  language: Language;
 }
 
-const Header: React.FC<HeaderProps> = ({ theme, onThemeToggle }) => {
-  const { t, i18n } = useTranslation();
-
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'es' ? 'en' : 'es';
-    i18n.changeLanguage(newLang);
-  };
-
+export const Header: React.FC<HeaderProps> = ({ onLanguageToggle, language }) => {
   return (
-    <header className={`${theme === 'dark' ? 'bg-gray-900' : 'bg-black'} text-white py-6`}>
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <QrCode size={32} />
-            <h1 className="text-4xl font-bold">
-              {t('app.title')}
-            </h1>
+    <div className="bg-black text-white">
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold">{language.header.title}</h1>
+            <p className="text-gray-400 mt-2">{language.header.subtitle}</p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center space-x-4">
             <a
               href="https://github.com/686f6c61/generador-QR"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-white/10 transition-colors"
-              aria-label="GitHub repository"
+              className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+              aria-label={language.header.githubAria}
             >
-              <Github size={20} />
+              <Github className="h-6 w-6" />
             </a>
             <button
-              onClick={toggleLanguage}
-              className="px-3 py-1 rounded-md border-2 border-white text-sm font-medium hover:bg-white hover:text-black transition-colors"
+              onClick={onLanguageToggle}
+              className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+              aria-label={language.header.languageAria}
             >
-              {i18n.language === 'es' ? 'EN' : 'ES'}
-            </button>
-            <button
-              onClick={onThemeToggle}
-              className="p-2 rounded-full hover:bg-white/10 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              <Languages className="h-6 w-6" />
             </button>
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 };
-
-export default Header;
