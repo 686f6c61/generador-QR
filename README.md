@@ -203,3 +203,4 @@ MIT License - ver [LICENSE.md](LICENSE.md) para más detalles
 3. Commit de tus cambios (`git commit -m 'Add some AmazingFeature'`)
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
+# Actualizado Abril 2025
