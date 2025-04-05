@@ -1,49 +1,27 @@
-# Generador de Códigos QR
+<div align="center">
 
-Aplicación web para la generación de códigos QR profesionales con dos modos principales:
-- Generación masiva de QRs para credenciales (Lanyards)
-- Generación individual de QRs para múltiples usos
+# 🔄 Generador de Códigos QR
 
-## 🚀 Características
+*Versión 0.2 | Actualizado: Abril 2025*
 
-### Generales
-- Interfaz moderna y responsiva con Tailwind CSS
-- Soporte multiidioma (Español/Inglés)
-- Previsualización en tiempo real
-- Múltiples formatos de descarga (PNG/SVG)
-- Personalización completa del diseño
-- Integración de logos
+<p>
+  <img src="https://img.shields.io/badge/version-0.2-blue" alt="Version 0.2">
+  <img src="https://img.shields.io/badge/react-18.2-61DBFB" alt="React 18.2">
+  <img src="https://img.shields.io/badge/typescript-5.2-3178C6" alt="TypeScript 5.2">
+  <img src="https://img.shields.io/badge/tailwind-3.4-38BDF8" alt="Tailwind 3.4">
+  <img src="https://img.shields.io/badge/vite-5.4-646CFF" alt="Vite 5.4">
+  <img src="https://img.shields.io/badge/licencia-MIT-green" alt="Licencia MIT">
+</p>
 
-### QR Lanyards
-- Carga masiva de datos mediante CSV
-- Generación de vCards profesionales
-- Vista previa y edición de datos
-- Empaquetado automático en ZIP
-- Validación de datos en tiempo real
+<p>Aplicación web profesional para la generación de códigos QR avanzados</p>
+</div>
 
-### Otros QR
-![Otros QR](img/github01.png)
+## 📋 Descripción
 
-Soporta múltiples tipos de contenido:
-- URLs
-- Texto plano
-- Tarjetas de contacto (vCard)
-- Email
-- Teléfono
-- WiFi
-- Ubicación geográfica
-- Eventos de calendario
-- SMS
-- Redes sociales
+Generador de Códigos QR es una aplicación moderna y potente que ofrece dos modos principales de funcionamiento:
 
-## 🛠️ Tecnologías
-
-- **Frontend**: React + TypeScript
-- **Estilos**: Tailwind CSS
-- **Iconos**: Lucide React
-- **Generación QR**: qrcode.js
-- **Procesamiento CSV**: PapaParse
-- **Empaquetado**: JSZip
+- ✨ **Generación masiva** de QRs para credenciales (Lanyards)
+- ✨ **Generación individual** de QRs para múltiples usos
 
 ## 📦 Instalación
 
@@ -51,156 +29,146 @@ Soporta múltiples tipos de contenido:
 # Clonar el repositorio
 git clone https://github.com/686f6c61/generador-QR.git
 
+# Navegar al directorio
+cd generador-QR
+
 # Instalar dependencias
 npm install
 
 # Iniciar en modo desarrollo
 npm run dev
-
-# Construir para producción
-npm run build
 ```
 
-## 🔧 Uso
+### 📋 Requisitos
 
-### Generación Masiva (QR Lanyards)
+- Node.js 18.0 o superior
+- NPM 8.0 o superior
 
-![Generación masiva QR Lanyards](img/github02.png)
+## 🧩 Modos de uso
 
+La aplicación ofrece dos modos principales para satisfacer diferentes necesidades:
 
-1. Descarga la plantilla CSV
-2. Completa la información de los contactos
-3. Sube el archivo CSV
-4. Configura las opciones del QR
-5. Añade un logo (opcional)
-6. Genera y descarga los códigos QR
+### 1. 📱 Generación individual (Otros QR)
 
-#### Estructura del CSV
+<div align="center">
+  <img src="img/qrs.png" alt="Generación individual de QR" width="80%">
+</div>
 
-El archivo CSV debe contener los siguientes campos:
+Crea códigos QR individuales para una variedad de propósitos con estos tipos disponibles:
 
+| Tipo | Descripción | Datos incluidos |
+|------|-------------|------------------|
+| 🌐 **URL** | Enlaces web directos | URL completa |
+| 📝 **Texto** | Mensajes personalizados | Hasta 300 caracteres |
+| 👤 **vCard** | Tarjetas de contacto | Datos personales y profesionales |
+| 📧 **Email** | Correo electrónico | Dirección, asunto y cuerpo |
+| 📞 **Teléfono** | Números telefónicos | Marcación directa |
+| 📶 **WiFi** | Redes inalámbricas | SSID, contraseña y tipo de cifrado |
+| 📍 **Ubicación** | Datos geográficos | Coordenadas de latitud y longitud |
+| 📅 **Calendario** | Eventos | Título, fecha, hora y ubicación |
+| 💬 **SMS** | Mensajes de texto | Número y texto predefinido |
+| 🔗 **Social** | Redes sociales | Enlaces a perfiles |
+
+### 2. 🏷️ Generación masiva (QR Lanyards)
+
+<div align="center">
+  <img src="img/masivo.png" alt="Generación masiva QR Lanyards" width="80%">
+</div>
+
+Genera múltiples códigos QR para credenciales o tarjetas de contacto siguiendo estos pasos:
+
+1. 📥 **Descarga una plantilla CSV** (vacía o con ejemplos)
+2. 📝 **Completa la información** de los contactos
+3. 📤 **Sube el archivo CSV** a la aplicación
+4. ⚙️ **Configura las opciones** (colores, tamaño, etc.)
+5. 🖼️ **Añade un logo** (opcional)
+6. ✅ **Genera y descarga** los códigos QR empaquetados en ZIP
+
+#### 📂 Plantillas disponibles
+
+Puedes elegir entre dos opciones:
+
+**A. 📝 Plantilla vacía**
 ```csv
 firstName,lastName,organization,title,email,phone,website,address
 ```
 
+**B. 📊 Plantilla con datos de ejemplo**
+```csv
+firstName,lastName,organization,title,email,phone,website,address
+Sundar,Pichai,Google,CEO,sundar@example.com,+1-650-555-1234,google.com,"1600 Amphitheatre Parkway, Mountain View, CA"
+Susan,Wojcicki,YouTube,CEO,susan@example.com,+1-650-555-2345,youtube.com,"901 Cherry Ave, San Bruno, CA"
+Kent,Walker,Google,SVP Global Affairs,kent@example.com,+1-650-555-3456,google.com,"1600 Amphitheatre Parkway, Mountain View, CA"
+# ... y 27 registros más
+```
+
+#### 📋 Estructura del CSV
+
 | Campo | Descripción | Requerido | Ejemplo |
-|-------|-------------|-----------|----------|
-| firstName | Nombre de la persona | Sí | Juan |
-| lastName | Apellidos | Sí | Pérez García |
-| organization | Empresa u organización | No | Empresa S.A. |
-| title | Cargo o posición | No | Director Técnico |
-| email | Correo electrónico | Sí | juan.perez@empresa.com |
-| phone | Teléfono (formato internacional) | Sí | +34 600000000 |
-| website | Sitio web | No | https://www.empresa.com |
-| address | Dirección postal | No | Calle Principal 123, Madrid |
+|-------|-------------|:---------:|---------|
+| firstName | Nombre de la persona | ✅ | Juan |
+| lastName | Apellidos | ✅ | Pérez García |
+| organization | Empresa u organización | ❌ | Empresa S.A. |
+| title | Cargo o posición | ❌ | Director Técnico |
+| email | Correo electrónico | ✅ | juan.perez@empresa.com |
+| phone | Teléfono (formato internacional) | ✅ | +34 600000000 |
+| website | Sitio web | ❌ | https://www.empresa.com |
+| address | Dirección postal | ❌ | Calle Principal 123, Madrid |
 
-#### Validaciones
+#### ✅ Validaciones aplicadas
 
-- **Email**: Debe ser una dirección de correo válida
-- **Teléfono**: Formato internacional con prefijo de país
-- **Máximo**: 150 registros por archivo
-- **Formato**: UTF-8 con separador de coma (,)
+- **📧 Email**: Debe ser una dirección de correo válida
+- **📞 Teléfono**: Formato internacional con prefijo de país
+- **📊 Capacidad**: Máximo 150 registros por archivo
+- **📁 Tamaño**: Archivos de hasta 5MB
 
-### Generación Individual (Otros QR)
+## ✨ Características generales
 
-#### Tipos Soportados
+- 🎨 **Interfaz moderna** y responsiva con Tailwind CSS
+- 🌍 **Soporte multiidioma** (Español/Inglés)
+- 👁️ **Previsualización** en tiempo real
+- 📦 **Múltiples formatos** de descarga (PNG/SVG)
+- 🖼️ **Personalización completa** de colores, tamaño y logos
+- 🌙 **Modo claro/oscuro** (predeterminado: claro)
 
-1. **URL**
-   - URLs web completas
-   - Validación de formato
+### ⚙️ Opciones de personalización de QR
 
-2. **Texto**
-   - Texto plano
-   - Límite de 300 caracteres
+| Categoría | Opciones disponibles |
+|-----------|----------------------|
+| **🎨 Colores** | Color de fondo, Color del código QR |
+| **💾 Dimensiones** | Tamaño (100-1000px), Margen (0-10) |
+| **⚙️ Técnicas** | Nivel de corrección de errores (L/M/Q/H), Estilo de esquinas (cuadradas/redondeadas) |
+| **🖼️ Logo** | Subida de imagen personalizada (máx. 500KB), Tamaño ajustable (10-30%) |
 
-3. **vCard**
-   - Información completa de contacto
-   - Formato vCard 3.0
+## 🛠️ Tecnologías utilizadas
 
-4. **Email**
-   - Dirección de correo
-   - Asunto predefinido
-   - Cuerpo del mensaje
+| Categoría | Tecnología | Versión |
+|-----------|------------|----------|
+| **🧩 Framework** | [React](https://reactjs.org/) | 18.2 |
+| **📘 Lenguaje** | [TypeScript](https://www.typescriptlang.org/) | 5.2 |
+| **🎨 Estilos** | [Tailwind CSS](https://tailwindcss.com/) | 3.4 |
+| **⚡ Build** | [Vite](https://vitejs.dev/) | 5.4 |
+| **🔣 Iconos** | [Lucide React](https://lucide.dev/) | 0.292 |
+| **🔄 QR** | [qrcode.js](https://github.com/soldair/node-qrcode) | 1.5 |
+| **📊 CSV** | [PapaParse](https://www.papaparse.com/) | 5.4 |
+| **📦 ZIP** | [JSZip](https://stuk.github.io/jszip/) | 3.10 |
 
-5. **Teléfono**
-   - Formato internacional
-   - Marcación directa
+## 📈 Próximas mejoras
 
-6. **WiFi**
-   - SSID y contraseña
-   - Soporte WPA/WEP/Sin contraseña
-   - Redes ocultas
-
-7. **Ubicación**
-   - Coordenadas GPS
-   - Búsqueda por nombre
-
-8. **Calendario**
-   - Título y descripción
-   - Fecha y hora
-   - Ubicación
-   - Eventos de día completo
-
-9. **SMS**
-   - Número de teléfono
-   - Mensaje predefinido
-
-10. **Redes Sociales**
-    - Twitter
-    - LinkedIn
-    - Facebook
-    - Instagram
-
-#### Opciones de Personalización
-
-- **Colores**
-  - Color de fondo
-  - Color del QR
-  
-- **Dimensiones**
-  - Tamaño (100-1000px)
-  - Margen (0-10)
-  
-- **Técnicas**
-  - Nivel de corrección de errores (L/M/Q/H)
-  - Estilo de esquinas (cuadradas/redondeadas)
-  
-- **Logo**
-  - Subida de imagen
-  - Tamaño ajustable (10-30%)
-  - Máximo 500KB
-
-## 🎨 Personalización
-
-### Estilos
-
-La aplicación utiliza Tailwind CSS para los estilos. Para personalizar:
-
-1. Modifica `tailwind.config.js` para ajustar:
-   - Colores
-   - Tipografía
-   - Espaciado
-   - Breakpoints
-
-2. Extiende los estilos en `index.css`
-
-### Traducciones
-
-Las traducciones se gestionan en `src/utils/i18n.ts`:
-
-1. Añade nuevos idiomas al objeto `languages`
-2. Implementa todas las claves requeridas
-3. Actualiza el selector de idiomas en el componente `Header`
+- 🔒 Autenticación de usuarios
+- 🔄 Sincronización con servicios en la nube
+- 📲 Aplicación móvil complementaria
+- 🌈 Más opciones de personalización
+- 🧠 IA para generación automática de contactos
 
 ## 📄 Licencia
 
-MIT License - ver [LICENSE.md](LICENSE.md) para más detalles
+Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
 
-## 🤝 Contribuir
+---
 
-1. Fork del repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit de tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-# Actualizado Abril 2025
+<div align="center">
+
+**Desarrollado con ❤️ | Abril 2025 | v0.2**
+
+</div>
