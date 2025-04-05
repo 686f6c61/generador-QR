@@ -1,0 +1,56 @@
+{
+  "app": {
+    "title": "QR Code Generator",
+    "description": "Generate custom QR codes for different types of content"
+  },
+  "types": {
+    "lanyar": "Lanyar",
+    "url": "URL",
+    "text": "Text",
+    "vcard": "Contact (vCard)",
+    "wifi": "WiFi",
+    "email": "Email",
+    "phone": "Phone",
+    "calendar": "Calendar",
+    "location": "Location",
+    "menu": "Menu",
+    "social": "Social Media",
+    "multilink": "Multi-links",
+    "data": "Data"
+  },
+  "lanyar": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "organization": "Organization",
+    "title": "Job Title",
+    "email": "Email",
+    "phone": "Phone",
+    "website": "Website",
+    "address": "Address"
+  },
+  "customization": {
+    "size": "Size",
+    "foreground": "Foreground Color",
+    "background": "Background Color",
+    "cornerStyle": "Corner Style",
+    "margin": "Margin",
+    "errorLevel": "Error Level",
+    "logo": "Logo"
+  },
+  "actions": {
+    "generate": "Generate",
+    "download": "Download",
+    "copy": "Copy",
+    "reset": "Reset"
+  },
+  "tooltips": {
+    "size": "QR code size in pixels (128-512)",
+    "errorLevel": "Error correction level. Higher percentage = more damage resistant",
+    "foreground": "Color of QR modules (black dots)",
+    "background": "QR code background color",
+    "logo": "Add a PNG or SVG logo (max 20% of size)"
+  },
+  "errors": {
+    "invalidImageFormat": "File must be PNG or SVG"
+  }
+}
